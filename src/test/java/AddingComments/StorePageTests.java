@@ -6,7 +6,7 @@ import org.junit.Test;
 public class StorePageTests extends StorePageBase{
 
     @Test
-    public void addingComments() throws InterruptedException {
+    public void addingComments()  {
         authenticationPage = mainPage.signIn();
         myAccountPage = authenticationPage.logIn(login, password);
         Assert.assertEquals(userName, myAccountPage.checkUser());
@@ -28,7 +28,6 @@ public class StorePageTests extends StorePageBase{
         myWishlistsPage.selectPriority(pdPriority, pcdPriority);
         mainPage = myWishlistsPage.newsletterSubscribe(email);
         Assert.assertEquals(expectedMessage, mainPage.checkSubscription());
-        Thread.sleep(1000);
         mainPage.logout();
         Assert.assertEquals(expectedSignInButtonText, mainPage.checkIfSignOut());
     }
